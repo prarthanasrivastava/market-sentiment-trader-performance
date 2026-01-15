@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+
+# Data (Optional - keep mock data for now, but ignore large real datasets if needed)
+# data/
+
+# OS
+.DS_Store
+Thumbs.db

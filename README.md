@@ -1,51 +1,54 @@
-
 # Bitcoin Market Sentiment and Trader Performance Analysis
 
 ## Project Overview
-This project explores the relationship between Bitcoin market sentiment and trader performance using two datasets:
-- **Bitcoin Market Sentiment Dataset:** Contains daily sentiment classifications (Fear, Greed, etc.).
-- **Historical Trader Data:** Contains execution details, PnL, trade size, and more.
+This project explores the relationship between **Bitcoin market sentiment** (Fear & Greed Index) and **trader performance**. By analyzing historical trade data alongside market sentiment, we aim to uncover behavioral patterns and performance correlations.
 
-## Key Findings
-- Traders tend to have **higher profit rates during Extreme Greed** days.
-- Average trade size is **largest during Fear** days.
-- **Buy and Sell distributions** vary by sentiment, with balanced trades during Neutral periods.
+## Key Insights
+Preliminary analysis of the data suggests:
+- **Profit Rates** may vary significantly during extreme sentiment periods (Extreme Fear vs. Extreme Greed).
+- **Trade Sizes** often adjust based on market confidence.
+- **Trading Activity** (Buy vs. Sell frequency) shifts with market sentiment.
 
-## Repository Structure
+## Folder Structure
 ```
 .
 ├── data/
-│   ├── historical_data.csv
-│   └── fear_greed_index.csv
-├── notebooks/
-│   └── analysis.ipynb
+│   ├── historical_data.csv       # (Generated/User Provided) Trade history
+│   └── fear_greed_index.csv      # (Generated/User Provided) Sentiment data
 ├── outputs/
-│   ├── plots/
-│   │   ├── profit_rate_by_sentiment.png
-│   │   ├── average_trade_size_by_sentiment.png
-│   │   └── trade_side_distribution.png
-│   └── pnl_by_sentiment_summary.csv
-├── sentiment_trade_analysis.py
-├── README.md
-└── requirements.txt
+│   ├── plots/                    # Generated visualization charts
+│   └── sentiment_performance_summary.csv  # aggregated performance metrics
+├── sentiment_trade_analysis.py   # Main analysis script
+├── generate_mock_data.py         # Script to create mock data for testing
+├── requirements.txt              # Project dependencies
+└── README.md                     # Project documentation
 ```
 
 ## How to Run
-1. Install required packages:
+
+### 1. Setup Environment
+Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-2. Run the Python script:
+
+### 2. Prepare Data
+**Option A: Run with Mock Data (Quick Start)**
+If you don't have your own data yet, generate realistic mock data:
+```bash
+python generate_mock_data.py
+```
+
+**Option B: Use Real Data**
+Place your files in the `data/` folder:
+- `historical_data.csv`: Must contain `Timestamp IST`, `Closed PnL`, `Size USD`, `Side`.
+- `fear_greed_index.csv`: Must contain `date`, `classification`.
+
+### 3. Run Analysis
+Execute the main script to process data and generate insights:
 ```bash
 python sentiment_trade_analysis.py
 ```
-3. Check the `outputs/plots` folder for generated visuals.
 
-## Requirements
-- pandas
-- matplotlib
-- seaborn
-
----
-
-*Project completed as part of a market analysis assignment.*
+### 4. View Results
+Check the `outputs/` folder for the summary CSV and `outputs/plots/` for visual charts.
